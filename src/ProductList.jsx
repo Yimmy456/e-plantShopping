@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
 import { addItem } from './CartSlice'
+
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
@@ -15,6 +16,10 @@ function ProductList({ onHomeClick }) {
             ...prevState,
             [product.name]: true,
         }));
+    };
+
+    const calculateTotalQuantity = () =>{
+        return CartItems ? CartItems.reduce((total, item) => total + item.quantity, 0) : 0;
     };
 
     const plantsArray = [

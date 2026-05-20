@@ -13,7 +13,7 @@ export const CartSlice = createSlice({
 
         if(existingItem)
         {
-            existingItem++;
+            existingItem.quantity++;
         }
         else
         {
